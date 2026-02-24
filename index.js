@@ -4,9 +4,9 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit')
 const helmet  = require('helmet')
-const xssClean = require('xss-clean');
+//const xssClean = require('xss-clean');
 //const csurf = require('csurf');
-const cookieParser = require('cookie-parser')
+//const cookieParser = require('cookie-parser')
 const app = express();
 app.disable('x-powered-by');
 //const mongoSanitize = require('express-mongo-sanitize');
@@ -23,9 +23,9 @@ app.use(cors({
 }));
 app.use(limiter)
 //app.use(mongoSanitize())
-app.use(cookieParser())
+//app.use(cookieParser())
 //app.use(csurf({cookie : true}))
-app.use(xssClean())
+//app.use(xssClean())
 app.use('/upload', express.static('uploads'))
 app.use('/api', require('./routes/taskRoutes'))
 
