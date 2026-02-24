@@ -1,11 +1,11 @@
 require('dotenv').config({ path: './.env' });
 const express = require('express');
 const mongoose = require('mongoose');
-const cros = require('cros');
+const cors = require('cors');
 const rateLimit = require('express-rate-limit')
 const helmet  = require('helmet')
 const xssClean = require('xss-clean');
-const csurf = require('csurf');
+//const csurf = require('csurf');
 const cookieParser = require('cookie-parser')
 const app = express();
 app.disable('x-powered-by');
@@ -17,14 +17,14 @@ const limiter = rateLimit({
 })
 app.use(express.json());
 app.use(helmet())
-app.use(cros({
+app.use(cors({
     origin : 'http://localhost:3000',
     methods : ['GET', 'POST', 'PUT', 'DELETE']
 }));
 app.use(limiter)
 //app.use(mongoSanitize())
 app.use(cookieParser())
-app.use(csurf({cookie : true}))
+//app.use(csurf({cookie : true}))
 app.use(xssClean())
 app.use('/upload', express.static('uploads'))
 app.use('/api', require('./routes/taskRoutes'))
