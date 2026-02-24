@@ -8,8 +8,8 @@ const xssClean = require('xss-clean');
 const csurf = require('csurf');
 const cookieParser = require('cookie-parser')
 const app = express();
-app.disable('x-powered-by')
-const mongoSanitize = require('express-mongo-sanitize');
+app.disable('x-powered-by');
+//const mongoSanitize = require('express-mongo-sanitize');
 const limiter = rateLimit({
     windowMs : 15 * 60 * 1000, // 15 min time interval
     max : 100, // limit each IP to 100 request per window
