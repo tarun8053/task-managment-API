@@ -22,7 +22,7 @@ app.use(cros({
     methods : ['GET', 'POST', 'PUT', 'DELETE']
 }));
 app.use(limiter)
-app.use(mongoSanitize())
+//app.use(mongoSanitize())
 app.use(cookieParser())
 app.use(csurf({cookie : true}))
 app.use(xssClean())
